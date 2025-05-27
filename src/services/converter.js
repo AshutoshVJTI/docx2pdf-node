@@ -36,47 +36,23 @@ export async function htmlToPdf(html) {
   try {
     logger.info('Converting HTML to PDF');
     
-    const styledHtml = `
-      <!DOCTYPE html>
+    const styledHtml = `<!DOCTYPE html>
       <html>
         <head>
           <meta charset="UTF-8">
           <style>
-            body {
-              font-family: Arial, sans-serif;
-              line-height: 1.5;
-              margin: 40px;
-            }
-            h1, h2, h3, h4, h5, h6 {
-              margin-top: 20px;
-              margin-bottom: 10px;
-            }
-            p {
-              margin-bottom: 15px;
-            }
-            table {
-              border-collapse: collapse;
-              width: 100%;
-              margin-bottom: 15px;
-            }
-            th, td {
-              border: 1px solid #ddd;
-              padding: 8px;
-            }
-            th {
-              background-color: #f2f2f2;
-            }
-            img {
-              max-width: 100%;
-            }
-            @page {
-              margin: 40px;
-            }
+            body { font-family: Arial, sans-serif; line-height: 1.5; margin: 40px; }
+            h1, h2, h3, h4, h5, h6 { margin-top: 20px; margin-bottom: 10px; }
+            p { margin-bottom: 15px; }
+            table { border-collapse: collapse; width: 100%; margin-bottom: 15px; }
+            th, td { border: 1px solid #ddd; padding: 8px; }
+            th { background-color: #f2f2f2; }
+            img { max-width: 100%; }
+            @page { margin: 40px; }
           </style>
         </head>
         <body>${html}</body>
-      </html>
-    `;
+      </html>`;
     
     try {
       browser = await puppeteer.launch({

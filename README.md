@@ -1,51 +1,38 @@
-# DOCX to PDF Converter API
+# DOCX to PDF Converter
 
-A Node.js API that converts DOCX files to PDF while preserving formatting.
+Node.js API to convert DOCX files to PDF with formatting preserved.
 
 ## Features
 
-- Converts DOCX files to PDF via a POST endpoint
-- No dependencies on LibreOffice or other Office software
-- Uses mammoth for DOCX to HTML conversion
-- Uses puppeteer for HTML to PDF rendering
+- Simple web UI for file uploads
+- Convert via POST endpoint
+- No LibreOffice dependency
+- Uses mammoth and puppeteer
 
-## Prerequisites
+## Setup
 
-- Node.js 16+
-- npm or yarn
-- Google Chrome installed (for Puppeteer)
-
-## Installation
-
-1. Clone the repository:
+1. Clone and install dependencies:
    ```bash
    git clone https://github.com/ashutoshvjti/docx2pdf-node.git
    cd docx2pdf-node
-   ```
-
-2. Install dependencies:
-   ```bash
    npm install
    ```
 
-3. Start the server:
+2. Run the server:
    ```bash
    npm start
    ```
 
-The server runs on port 3000 by default. Set the `PORT` environment variable to change this.
+The app runs on port 3000 by default.
 
-## API Usage
+## Usage
 
-### Convert DOCX to PDF
+### Web Interface
 
-**Endpoint:** `POST /convert`
+Open http://localhost:3000 and upload your DOCX files.
 
-**Request:**
-- Content-Type: `multipart/form-data`
-- Form field: `file` (DOCX file)
+### API
 
-**cURL Example:**
 ```bash
 curl -X POST \
   http://localhost:3000/convert \
@@ -54,16 +41,11 @@ curl -X POST \
   --output document.pdf
 ```
 
-**Response:**
-- Content-Type: `application/pdf`
-- Body: PDF file as binary data
-
 ## Troubleshooting
 
-If you encounter issues with Puppeteer failing to launch Chrome:
-
-1. Make sure Chrome is installed on your system
-2. Install with `PUPPETEER_SKIP_DOWNLOAD=true npm install`
+If Puppeteer fails to launch Chrome:
+- Make sure Chrome is installed
+- Try `PUPPETEER_SKIP_DOWNLOAD=true npm install`
 
 ## License
 
